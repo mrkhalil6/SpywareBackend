@@ -11,13 +11,13 @@ class PictureController:
     def get_entity(self, request, picture_id):
         try:
             if picture_id is None:
-                limit = 10
+                limit = 12
                 page = int(request.GET.get("page", "1"))
                 if page < 1:
                     return Response(create_message(True, 'invalid_page', []))
                 device_id = request.device_id
 
-                total_count = Picture.objects.all().count()
+                total_count = Picture.objects.filter(device_id=device_id).count()
                 skip_values = (page - 1) * limit
                 offset = skip_values + limit
                 print(device_id)
