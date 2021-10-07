@@ -15,3 +15,7 @@ tests/report/
 SpywareBackendServer/local_settings.py
 local_settings.py
 */local_settings.py
+venv/
+venv/*
+env/
+.env/
