@@ -18,7 +18,7 @@ class VoiceRecordingController:
                     return Response(create_message(True, 'invalid_page', []))
                 device_id = request.device_id
 
-                total_count = VoiceRecording.objects.all().count()
+                total_count = VoiceRecording.objects.filter(device_id=device_id).count()
                 skip_values = (page - 1) * limit
                 offset = skip_values + limit
                 print(device_id)
